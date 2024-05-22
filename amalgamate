@@ -862,11 +862,11 @@ inline-file()
 		if is-standard-include-line "$line"
 		then
 			local standard_include_path=$(path-from-standard-include-line "$line")
-			if array-contains-item "$standard_include_path" "${INLINE_FILE_CONTEXT_already_included_standard_files[@]}"
-			then
-				file-printf-annotation "$output_path" '%s// %s    // amalgamate: file already included\n' "$indent" "$line"
-				continue
-			fi
+			# if array-contains-item "$standard_include_path" "${INLINE_FILE_CONTEXT_already_included_standard_files[@]}"
+			# then
+			# 	file-printf-annotation "$output_path" '%s// %s    // amalgamate: file already included\n' "$indent" "$line"
+			# 	continue
+			# fi
 
 			INLINE_FILE_CONTEXT_already_included_standard_files+=("$standard_include_path")
 			process-standard-header "$output_path" '%s%s\n' "$indent" "$line"
